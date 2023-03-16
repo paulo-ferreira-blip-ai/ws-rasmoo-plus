@@ -1,0 +1,222 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 268435456 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3557), pid=16432, tid=15932
+#
+# JRE version:  (17.0.6+10) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.6+10-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.2\lib\idea_rt.jar=62636:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.2\bin -Dfile.encoding=UTF-8 com.cliente.ws.rasmooplus.WsRasmooPlusApplication
+
+Host: AMD Ryzen 7 3700X 8-Core Processor             , 16 cores, 15G,  Windows 11 , 64 bit Build 22621 (10.0.22621.1194)
+Time: Mon Mar 13 15:25:18 2023 Hora Padrão de Buenos Aires elapsed time: 0.007594 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002c045e3da10):  JavaThread "Unknown thread" [_thread_in_vm, id=15932, stack(0x000000e5b4e00000,0x000000e5b4f00000)]
+
+Stack: [0x000000e5b4e00000,0x000000e5b4f00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x64b39a]
+V  [jvm.dll+0x7ff044]
+V  [jvm.dll+0x8007fe]
+V  [jvm.dll+0x800e53]
+V  [jvm.dll+0x235848]
+V  [jvm.dll+0x6482fa]
+V  [jvm.dll+0x63ca0a]
+V  [jvm.dll+0x2f3d59]
+V  [jvm.dll+0x2faee6]
+V  [jvm.dll+0x34755a]
+V  [jvm.dll+0x34779f]
+V  [jvm.dll+0x2ca128]
+V  [jvm.dll+0x2cb0b9]
+V  [jvm.dll+0x7d2751]
+V  [jvm.dll+0x354a21]
+V  [jvm.dll+0x7b2c9e]
+V  [jvm.dll+0x3d16c3]
+V  [jvm.dll+0x3d30c1]
+C  [jli.dll+0x519f]
+C  [ucrtbase.dll+0x29363]
+C  [KERNEL32.DLL+0x126bd]
+C  [ntdll.dll+0x5dfb8]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffcee19b858, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000002c045eaac30 GCTaskThread "GC Thread#0" [stack: 0x000000e5b4f00000,0x000000e5b5000000] [id=17152]
+  0x000002c045ebbb10 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000e5b5000000,0x000000e5b5100000] [id=18792]
+  0x000002c045ebc420 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000e5b5100000,0x000000e5b5200000] [id=20024]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffced98b387]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000002c045e386a0] Heap_lock - owner thread: 0x000002c045e3da10
+
+Heap address: 0x0000000700c00000, size: 4084 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000700c00000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffcedd52dd9]
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.005 Loaded shared library C:\Users\paulo\.jdks\corretto-17.0.6\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff71e250000 - 0x00007ff71e25d000 	C:\Users\paulo\.jdks\corretto-17.0.6\bin\java.exe
+0x00007ffd5de10000 - 0x00007ffd5e024000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffd5bd00000 - 0x00007ffd5bdc3000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffd5b500000 - 0x00007ffd5b89c000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffd5b8a0000 - 0x00007ffd5b9b1000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffd4b2b0000 - 0x00007ffd4b2c7000 	C:\Users\paulo\.jdks\corretto-17.0.6\bin\jli.dll
+0x00007ffd4a9a0000 - 0x00007ffd4a9b5000 	C:\Users\paulo\.jdks\corretto-17.0.6\bin\VCRUNTIME140.dll
+0x00007ffd5d0f0000 - 0x00007ffd5d29d000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffd5b360000 - 0x00007ffd5b386000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffd48270000 - 0x00007ffd484fe000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.608_none_a9444ca7c10bb01d\COMCTL32.dll
+0x00007ffd5c5c0000 - 0x00007ffd5c5e9000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffd5cf20000 - 0x00007ffd5cfc7000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffd5b9c0000 - 0x00007ffd5bad2000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffd5b2c0000 - 0x00007ffd5b35a000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffd5cea0000 - 0x00007ffd5ced2000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffd2cac0000 - 0x00007ffd2cb5b000 	C:\Users\paulo\.jdks\corretto-17.0.6\bin\msvcp140.dll
+0x00007ffced6b0000 - 0x00007ffcee2c8000 	C:\Users\paulo\.jdks\corretto-17.0.6\bin\server\jvm.dll
+0x00007ffd5cde0000 - 0x00007ffd5ce8e000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffd5d460000 - 0x00007ffd5d504000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffd5c8b0000 - 0x00007ffd5c9c5000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffd51740000 - 0x00007ffd51774000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffd51780000 - 0x00007ffd5178a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffd49ec0000 - 0x00007ffd49ec9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffd5bc20000 - 0x00007ffd5bc91000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffd5a260000 - 0x00007ffd5a278000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffd4b2a0000 - 0x00007ffd4b2aa000 	C:\Users\paulo\.jdks\corretto-17.0.6\bin\jimage.dll
+0x00007ffd54440000 - 0x00007ffd5466e000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffd5ca50000 - 0x00007ffd5cdda000 	C:\WINDOWS\System32\combase.dll
+0x00007ffd5d990000 - 0x00007ffd5da67000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffd49a70000 - 0x00007ffd49aa2000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffd5bba0000 - 0x00007ffd5bc1b000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffd4b480000 - 0x00007ffd4b48e000 	C:\Users\paulo\.jdks\corretto-17.0.6\bin\instrument.dll
+0x00007ffd49400000 - 0x00007ffd49425000 	C:\Users\paulo\.jdks\corretto-17.0.6\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\paulo\.jdks\corretto-17.0.6\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.608_none_a9444ca7c10bb01d;C:\Users\paulo\.jdks\corretto-17.0.6\bin\server
+
+VM Arguments:
+jvm_args: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.2\lib\idea_rt.jar=62636:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.2\bin -Dfile.encoding=UTF-8 
+java_command: com.cliente.ws.rasmooplus.WsRasmooPlusApplication
+java_class_path (initial): C:\Users\paulo\Music\ws-rasmoo-plus\ws-rasmoo-plus\target\classes;C:\Users\paulo\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\2.7.9\spring-boot-starter-data-jpa-2.7.9.jar;C:\Users\paulo\.m2\repository\org\springframework\boot\spring-boot-starter-aop\2.7.9\spring-boot-starter-aop-2.7.9.jar;C:\Users\paulo\.m2\repository\org\springframework\spring-aop\5.3.25\spring-aop-5.3.25.jar;C:\Users\paulo\.m2\repository\org\aspectj\aspectjweaver\1.9.7\aspectjweaver-1.9.7.jar;C:\Users\paulo\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\2.7.9\spring-boot-starter-jdbc-2.7.9.jar;C:\Users\paulo\.m2\repository\com\zaxxer\HikariCP\4.0.3\HikariCP-4.0.3.jar;C:\Users\paulo\.m2\repository\org\springframework\spring-jdbc\5.3.25\spring-jdbc-5.3.25.jar;C:\Users\paulo\.m2\repository\jakarta\transaction\jakarta.transaction-api\1.3.3\jakarta.transaction-api-1.3.3.jar;C:\Users\paulo\.m2\repository\jakarta\persistence\jakarta.persistence-api\2.2.3\jakarta.persistence-api-2.2.3.jar;C:\Users\paulo\.m2\repository\org\hibernate\hibernate-core\5.6.15.Final\hibernate-core-5.6.15.Final.jar;C:\Users\paulo\.m2\repository\org\jboss\logging\jboss-logging\3.4.3.Final\jboss-logging-3.4.3.Final.jar;C:\Users\paulo\.m2\repository\net\bytebuddy\byte-buddy\1.12.23\byte-buddy-1.12.23.jar;C:\Users\paulo\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\paulo\.m2\repository\org\jboss\jandex\2.4.2.Final\jandex-2.4.2.Final.jar;C:\Users\paulo\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\paulo\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.1.2.Final\hibernate-commons-annotations-5.1.2.Final.jar;C:\Users\paulo\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.8\jaxb-runtime-2.3.8.jar;C:\Users\paulo\.m2\repository\org\glassfish\jaxb\txw2\2.3.8\txw2-2.3.8.jar;C:\Users\paulo\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.12\istack-commons-runtime-3.0.12.jar;C:\Users\paulo\.m2\repository\c
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 13                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 268435456                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4282384384                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 7602480                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122027880                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122027880                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4282384384                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-19
+PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Users\paulo\AppData\Local\Microsoft\WindowsApps;C:\Users\paulo\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Java\jdk-19\bin;
+USERNAME=paulo
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
+TMP=C:\Users\paulo\AppData\Local\Temp
+TEMP=C:\Users\paulo\AppData\Local\Temp
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.1194)
+OS uptime: 5 days 19:07 hours
+Hyper-V role detected
+
+CPU: total 16 (initial active 16) (16 cores per cpu, 2 threads per core) family 23 model 113 stepping 0 microcode 0x0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, hv
+
+Memory: 4k page, system-wide physical 16332M (5450M free)
+TotalPageFile size 32332M (AvailPageFile size 250M)
+current process WorkingSet (physical memory assigned to process): 12M, peak: 12M
+current process commit charge ("private bytes"): 70M, peak: 326M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.6+10-LTS) for windows-amd64 JRE (17.0.6+10-LTS), built on Jan 13 2023 22:57:04 by "Administrator" with MS VC++ 15.9 (VS2017)
+
+END.

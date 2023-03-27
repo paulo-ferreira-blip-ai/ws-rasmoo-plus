@@ -8,11 +8,9 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "users")
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Builder
 public class User implements Serializable {
 
@@ -21,8 +19,11 @@ public class User implements Serializable {
     @Column(name = "users_id")
     private Long id;
     private String name;
+    @Column(unique = true)
     private String email;
+    @Column(unique = true)
     private String phone;
+    @Column(unique = true)
     private String cpf;
     @Column(name = "dt_subscription")
     private LocalDate dtSubscription = LocalDate.now();

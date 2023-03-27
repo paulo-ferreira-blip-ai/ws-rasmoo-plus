@@ -8,18 +8,16 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "user_payment_info")
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Builder
 public class UserPaymentInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_payment_info_id")
     private Long id;
-    @Column(name = "card_number")
+    @Column(name = "card_number",unique = true)
     private String cardNumber;
     @Column(name = "card_expiration_month")
     private Long expirationMonth;

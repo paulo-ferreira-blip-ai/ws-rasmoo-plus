@@ -1,6 +1,6 @@
 package com.cliente.ws.rasmooplus.controller;
 
-import com.cliente.ws.rasmooplus.exception.NotFoundException;
+import com.cliente.ws.rasmooplus.dto.SubscriptionTypeDto;
 import com.cliente.ws.rasmooplus.model.SubscriptionType;
 import com.cliente.ws.rasmooplus.service.SubcriptionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +27,15 @@ public class SubcriptionTypeController {
         return ResponseEntity.status(HttpStatus.OK).body(service.findaById(id));
     }
 
-    @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<String> notFoundException(NotFoundException n) {
-        String errorMessage = n.getMessage();
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
+    @PostMapping
+    public ResponseEntity<SubscriptionType> create(@RequestBody SubscriptionTypeDto subscriptionTypeDto){
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.create(subscriptionTypeDto));
     }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<SubscriptionType> update(@PathVariable("id") Long id, @RequestBody SubscriptionTypeDto subscriptionTypeDto) {
+        return ResponseEntity.status(HttpStatus.OK).body(service.update(id, subscriptionTypeDto));
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package com.cliente.ws.rasmooplus.service;
 
+import com.cliente.ws.rasmooplus.dto.UserDto;
 import com.cliente.ws.rasmooplus.model.User;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public interface UserService {
 
     User findaById(Long id);
 
-    User create(User user);
+    User create(UserDto userDto);
 
     User update(User user);
 

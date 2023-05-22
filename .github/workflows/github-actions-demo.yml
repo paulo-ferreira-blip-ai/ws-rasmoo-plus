@@ -1,0 +1,39 @@
+name: Java CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+     
+        
+      - name: Run SonarQube Scanner
+        uses: sonarsource/sonarqube-scan-action@v1
+        with:
+          projectBaseDir: .
+          token: ${{ secrets.SONARQUBE_TOKEN }}
+          extras: |
+            sonar.qualitygate.wait=true
+            
+            - name: Run Tests
+              run: mvn test
+

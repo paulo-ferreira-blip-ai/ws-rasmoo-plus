@@ -1,0 +1,1 @@
+Swagger = http://localhost:8082/ws-rasplus/swagger-ui/index.html#/

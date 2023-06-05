@@ -1,7 +1,7 @@
 package com.cliente.ws.rasmooplus.exception.handler;
 
 import com.cliente.ws.rasmooplus.dto.error.ErrorResponseDto;
-import com.cliente.ws.rasmooplus.exception.BadRequestException;
+import com.cliente.ws.rasmooplus.exception.BusinessException;
 import com.cliente.ws.rasmooplus.exception.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,15 +26,17 @@ public class ResourceHandler {
                 .statusCode(HttpStatus.NOT_FOUND.value())
                 .build());
     }
-    @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<ErrorResponseDto> badRequestException(NotFoundException b) {
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ErrorResponseDto> badRequestException(BusinessException b) {
         String errorMessage = b.getMessage();
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ErrorResponseDto.builder()
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(ErrorResponseDto.builder()
                 .message(b.getMessage())
-                .httpStatus(HttpStatus.BAD_REQUEST)
-                .statusCode(HttpStatus.BAD_REQUEST.value())
+                .httpStatus(HttpStatus.CONFLICT)
+                .statusCode(HttpStatus.CONFLICT.value())
                 .build());
     }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponseDto> badRequestException(MethodArgumentNotValidException m) {
         Map<String, String> messages = new HashMap<>();

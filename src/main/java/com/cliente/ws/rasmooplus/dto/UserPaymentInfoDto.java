@@ -14,13 +14,12 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class UserPaymentInfoDto {
 
 
     private Long id;
 
-    @Size(min = 16, max = 16, message = "Deve conter 16 caracteres")
+    @Size(min = 16, max = 16, message = " Deve conter 16 caracteres")
     private String cardNumber;
 
     @Min(value = 1)
@@ -29,13 +28,15 @@ public class UserPaymentInfoDto {
 
     private Long expirationYear;
 
-    @Size(min = 3, max = 3, message = "Deve conter 3 caracteres")
+    @Size(min = 3, max = 3, message = " Deve conter 3 caracteres")
     private String cardSecurityCode;
 
     private BigDecimal price;
 
     private LocalDate dtPayment = LocalDate.now();
 
-    @NotNull(message = "UserId deve ser informado")
+    private Long installments;
+
+    @NotNull(message = " UserId deve ser informado")
     private Long userId;
 }

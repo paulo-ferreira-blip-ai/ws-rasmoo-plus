@@ -31,10 +31,19 @@ CREATE TABLE if not exists `user_payment_info`(
                                                   `card_expiration_year` INT NOT NULL,
                                                   `card_security_code` CHAR(255) NOT NULL,
                                                   `price` DECIMAL(10,2) NOT NULL,
-                                                  `instalments` INT NOT NULL,
+                                                  `installments` INT,
                                                   `dt_payment` DATE NOT NULL,
                                                   `user_id` INT
 );
+
+CREATE TABLE if not exists `user_credentials`(
+                                      `user_credentials_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                                      `username` CHAR(255) NOT NULL,
+                                      `password` CHAR(255) NOT NULL,
+                                      `user_type_id` INT
+);
+
+
 
 ALTER TABLE
     `users` ADD UNIQUE `users_email_unique`(`email`);
@@ -56,6 +65,9 @@ ALTER TABLE
 
 ALTER TABLE
     `user_payment_info` ADD CONSTRAINT `fk_user_id` FOREIGN KEY(`user_id`) REFERENCES `users`(`users_id`);
+
+ALTER TABLE
+    `user_credentials` ADD CONSTRAINT `fk_3_user_type_id` FOREIGN KEY(`user_type_id`) REFERENCES `user_type`(`user_type_id`);
 
 INSERT INTO `subscriptions_type` (`name`,`access_months`,`price`,`product_key`) VALUES ('PLANO MENSAL',1,75.00,'MONTH22');
 INSERT INTO `subscriptions_type` (`name`,`access_months`,`price`,`product_key`) VALUES ('PLANO ANUAL',12,697.00,'YEAR22');
